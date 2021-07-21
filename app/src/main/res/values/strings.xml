@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">proyectoTiendaVirtual</string>
+    <string name="txvIntroduceElNombre">Introduce el nombre del usuario</string>
+    <string name="txeIntroducirNombre">Introduce el nombre del usuario</string>
+    <string name="txvIntroduceLaContraseña">Introduce una contraseña</string>
+    <string name="txeIntroducirContraseña">Introduce la contraseña</string>
+    <string name="txvConfirmarContraseña">Confirmar contraseña</string>
+    <string name="txeConfirmaContraseña">Confirma la contraseña</string>
+    <string name="txvDireccion">Direccion</string>
+    <string name="txeColocarDireccion">introduce la dirección</string>
+    <string name="txvCiudad">Ciudad</string>
+    <string name="txeIntroduceLaCiudad">introduce la ciudad</string>
+    <string name="txvTelefono">Telefono</string>
+    <string name="txeIntroduceElTelefono">Introduce el numero telefonico</string>
+    <string name="txvFechaNacimiento">Fecha de nacimiento</string>
+    <string name="txeIntroduceFechaNacimiento">Introduce la fecha de nacimeinto</string>
+    <string name="btnRegister">Registrarse</string>
+</resources>
