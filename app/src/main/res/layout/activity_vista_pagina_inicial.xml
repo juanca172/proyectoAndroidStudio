@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/Linear_Layaut_P_Inicial"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#CFC9C9"
+android:orientation="vertical"
+tools:context=".views.VistaPaginaInicial">
+
+<ImageView
+    android:id="@+id/logo"
+    android:layout_width="381dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.5"
+    android:translationX="14dp"
+    android:translationY="40dp"
+    app:srcCompat="@drawable/sales_instantly_logo" />
+
+<ImageView
+    android:id="@+id/imagen_inicial"
+    android:layout_width="match_parent"
+    android:layout_height="83dp"
+    android:layout_weight="1"
+    android:translationX="0dp"
+    android:translationY="20dp"
+    app:srcCompat="@drawable/imagen_inicial" />
+
+</LinearLayout>
