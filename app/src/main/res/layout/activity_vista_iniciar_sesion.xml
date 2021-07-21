@@ -22,19 +22,20 @@ tools:context=".views.VistaIniciarSesion">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/txe_contraseña" />
 
-<Button
-    android:id="@+id/Button_Crear_Cuenta"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="106dp"
-    android:layout_marginLeft="106dp"
-    android:layout_marginTop="44dp"
-    android:text="@string/BtCrearCuenta"
-    android:textColor="#010101"
-    android:textSize="20sp"
-    app:backgroundTint="#CFC9C9"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/logo_facebook" />
+    <Button
+        android:id="@+id/Button_Crear_Cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginLeft="106dp"
+        android:layout_marginTop="44dp"
+        android:onClick="Crear_Cuenta"
+        android:text="@string/BtCrearCuenta"
+        android:textColor="#010101"
+        android:textSize="20sp"
+        app:backgroundTint="#CFC9C9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_facebook" />
 
 <Button
     android:id="@+id/Button_Ingresar"
