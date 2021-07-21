@@ -15,4 +15,9 @@
     <string name="txvFechaNacimiento">Fecha de nacimiento</string>
     <string name="txeIntroduceFechaNacimiento">Introduce la fecha de nacimeinto</string>
     <string name="btnRegister">Registrarse</string>
+    <string name="TxeUsuarioCorreoelectronico">usuario y/o correo electronico</string>
+    <string name="TxeContraseña">contraseña</string>
+    <string name="BtOlvideMiContraseña">OLVIDE MI CONTRASEÑA</string>
+    <string name="BtCrearCuenta">CREAR CUENTA</string>
+    <string name="BtIngresar">INGRESAR</string>
 </resources>

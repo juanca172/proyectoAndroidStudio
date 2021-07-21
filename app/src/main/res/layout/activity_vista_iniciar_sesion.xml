@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/Layaut_Iniciar_Sesion"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#CFC9C9"
+tools:context=".views.VistaIniciarSesion">
+
+<Button
+    android:id="@+id/Button_Olvide_Contraseña"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="57dp"
+    android:layout_marginLeft="57dp"
+    android:layout_marginTop="23dp"
+    android:text="@string/BtOlvideMiContraseña"
+    android:textColor="#010101"
+    android:textSize="20sp"
+    app:backgroundTint="#CFC9C9"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txe_contraseña" />
+
+<Button
+    android:id="@+id/Button_Crear_Cuenta"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="106dp"
+    android:layout_marginLeft="106dp"
+    android:layout_marginTop="44dp"
+    android:text="@string/BtCrearCuenta"
+    android:textColor="#010101"
+    android:textSize="20sp"
+    app:backgroundTint="#CFC9C9"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/logo_facebook" />
+
+<Button
+    android:id="@+id/Button_Ingresar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="79dp"
+    android:layout_marginLeft="79dp"
+    android:layout_marginTop="50dp"
+    android:text="@string/BtIngresar"
+    android:textColor="#010101"
+    android:textSize="40sp"
+    app:backgroundTint="#152A8D"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/Button_Crear_Cuenta" />
+
+<ImageView
+    android:id="@+id/logo_facebook"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_marginStart="40dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginTop="60dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/Button_Olvide_Contraseña"
+    app:srcCompat="@drawable/logo_facebook" />
+
+<ImageView
+    android:id="@+id/imageView7"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_marginTop="60dp"
+    android:layout_marginEnd="40dp"
+    android:layout_marginRight="40dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/Button_Olvide_Contraseña"
+    app:srcCompat="@drawable/logo_google" />
+
+<EditText
+    android:id="@+id/txe_correo_usuario"
+    android:layout_width="247dp"
+    android:layout_height="45dp"
+    android:layout_marginStart="82dp"
+    android:layout_marginLeft="82dp"
+    android:layout_marginTop="45dp"
+    android:ems="10"
+    android:gravity="center"
+    android:hint="@string/TxeUsuarioCorreoelectronico"
+    android:inputType="textPersonName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<EditText
+    android:id="@+id/txe_contraseña"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="100dp"
+    android:layout_marginLeft="100dp"
+    android:layout_marginTop="30dp"
+    android:ems="10"
+    android:gravity="center"
+    android:hint="@string/TxeContraseña"
+    android:inputType="textPersonName"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txe_correo_usuario" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
