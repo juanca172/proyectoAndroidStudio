@@ -26,9 +26,9 @@ tools:context=".views.VistaIniciarSesion">
         android:id="@+id/Button_Crear_Cuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="106dp"
-        android:layout_marginLeft="106dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="36dp"
         android:onClick="Crear_Cuenta"
         android:text="@string/BtCrearCuenta"
         android:textColor="#010101"
@@ -37,21 +37,21 @@ tools:context=".views.VistaIniciarSesion">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_facebook" />
 
-<Button
-    android:id="@+id/Button_Ingresar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="79dp"
-    android:layout_marginLeft="79dp"
-    android:layout_marginTop="50dp"
-    android:text="@string/BtIngresar"
-    android:textColor="#010101"
-    android:textSize="40sp"
-    app:backgroundTint="#152A8D"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/Button_Crear_Cuenta" />
+    <Button
+        android:id="@+id/Button_Ingresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/BtIngresar"
+        android:textColor="#010101"
+        android:textSize="34sp"
+        app:backgroundTint="#152A8D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Button_Crear_Cuenta" />
 
-<ImageView
+    <ImageView
     android:id="@+id/logo_facebook"
     android:layout_width="150dp"
     android:layout_height="150dp"
