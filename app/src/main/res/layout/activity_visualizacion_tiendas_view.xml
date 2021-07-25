@@ -44,11 +44,13 @@
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ListView
+        android:id="@+id/list_view_1"
         android:layout_width="404dp"
         android:layout_height="562dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:layout_marginBottom="4dp"
+        android:divider="@android:drawable/button_onoff_indicator_on"
+        android:entries="@android:array/phoneTypes"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
