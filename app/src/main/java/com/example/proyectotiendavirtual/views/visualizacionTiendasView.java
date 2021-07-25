@@ -2,7 +2,9 @@ package com.example.proyectotiendavirtual.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -30,5 +32,10 @@ public class visualizacionTiendasView extends AppCompatActivity {
         //creacion de un adaptador para enviar datos al listView
         ArrayAdapter<String> adapterListado = new ArrayAdapter<>(this, R.layout.list_view_visualizacion_tiendas_forma, tiendas);
         listado.setAdapter(adapterListado);
+    }
+
+    public void goToVistaIniciarSesionDesdeLasTiendas(View view) {
+        Intent intent = new Intent(this, VistaIniciarSesion.class);
+        startActivity(intent);
     }
 }
