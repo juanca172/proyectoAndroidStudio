@@ -18,7 +18,7 @@ public class visualizacionTiendasView extends AppCompatActivity {
         //Relacion entre la vista y la parte logica
         spinner = (Spinner)findViewById(R.id.PruebaSpinner);
         //Creacion de un array
-        String [] things = {"Juan", "andres", "mercurio","sumar"};
+        String [] things = {"Tecnologia", "Belleza y cuidado personal", "Articulos del hogar","televisores", "moda", "juegos y juguetes", "animales y mascotas"};
         //creacion de un adaptador para enviar datos al spinner
         ArrayAdapter<String> arrayAdaptador = new ArrayAdapter<>(this, R.layout.spinner_item_visualizacion_tiendas, things);
         spinner.setAdapter(arrayAdaptador);
