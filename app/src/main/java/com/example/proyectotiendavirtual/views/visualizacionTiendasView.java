@@ -28,6 +28,7 @@ public class visualizacionTiendasView extends AppCompatActivity {
         ArrayAdapter<String> arrayAdaptador = new ArrayAdapter<>(this, R.layout.spinner_item_visualizacion_categorias, categorias);
         spinner.setAdapter(arrayAdaptador);
         //creacion de un adaptador para enviar datos al listView
-        ArrayAdapter<String> adapterListado = new ArrayAdapter<>(this,)
+        ArrayAdapter<String> adapterListado = new ArrayAdapter<>(this, R.layout.list_view_visualizacion_tiendas_forma, tiendas);
+        listado.setAdapter(adapterListado);
     }
 }

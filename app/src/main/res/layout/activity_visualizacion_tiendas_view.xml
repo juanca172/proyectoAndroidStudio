@@ -8,12 +8,12 @@
 
     <Spinner
         android:id="@+id/PruebaSpinner"
-        android:layout_width="281dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
 
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,14 +45,18 @@
 
     <ListView
         android:id="@+id/list_view_1"
-        android:layout_width="404dp"
-        android:layout_height="562dp"
+        android:layout_width="match_parent"
+        android:layout_height="521dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginBottom="4dp"
-        android:divider="@android:drawable/button_onoff_indicator_on"
+        android:divider="@android:drawable/button_onoff_indicator_off"
         android:entries="@android:array/phoneTypes"
-        android:padding="5dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PruebaSpinner"
+        app:layout_constraintVertical_bias="0.96" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
