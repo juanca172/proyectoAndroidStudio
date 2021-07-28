@@ -1,5 +1,7 @@
 <resources>
+
     <string name="app_name">Sales Instantly</string>
+
     <string name="txvIntroduceElNombre">Introduce el nombre del usuario</string>
     <string name="txeIntroducirNombre">Introduce el nombre del usuario</string>
     <string name="txvIntroduceLaContraseña">Introduce una contraseña</string>
