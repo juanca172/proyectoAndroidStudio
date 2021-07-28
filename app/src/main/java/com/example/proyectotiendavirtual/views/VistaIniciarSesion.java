@@ -32,13 +32,12 @@ public class VistaIniciarSesion extends AppCompatActivity {
 
     //metodo que verifica los dos metodos creados
     public void IniciarSesion(View view) {
-        boolean ComVal;
-        boolean ValCam;
+
 
         ComparacionValores();
         ValidarCampoVacio();
 
-        if (ComparacionValores()  && ValidarCampoVacio()  ) {
+        if (ComparacionValores()  && ValidarCampoVacio()) {
             Toast.makeText(this, "entro a iniciar sesion", Toast.LENGTH_SHORT).show();
         }
     }

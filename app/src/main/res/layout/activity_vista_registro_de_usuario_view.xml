@@ -192,7 +192,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextDate"
+            android:id="@+id/et_fecha_nacimiento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
