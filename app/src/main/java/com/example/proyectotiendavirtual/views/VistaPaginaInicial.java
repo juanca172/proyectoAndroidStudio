@@ -34,4 +34,5 @@ public class VistaPaginaInicial extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 }

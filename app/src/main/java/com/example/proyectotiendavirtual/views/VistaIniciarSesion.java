@@ -32,8 +32,6 @@ public class VistaIniciarSesion extends AppCompatActivity {
 
     //metodo que verifica los dos metodos creados
     public void IniciarSesion(View view) {
-
-
         ComparacionValores();
         ValidarCampoVacio();
 
