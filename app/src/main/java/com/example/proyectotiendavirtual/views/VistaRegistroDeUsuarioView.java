@@ -39,15 +39,13 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         Ntelefono = (EditText) findViewById(R.id.editetxt_numero_telefono);
         Fnacimiento = (EditText) findViewById(R.id.editext_fecha_nacimiento);
 
-        campoFecha = findViewById(R.id.editext_fecha_nacimiento);
-
-        campoFecha.setOnClickListener(new View.OnClickListener() {
+        Fnacimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        campoFecha.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                        Fnacimiento.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
                     }
                 }
                         ,dia, mes, año);
@@ -57,7 +55,7 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
 
     }
 
-    //metodo para guardar datos en formulario y crear usuario
+    //metodo para guardar datos en formulario y registrarsse
     public void Registrar(View view){
         Campo_vacio();
         Comparar_Valores();
@@ -66,6 +64,7 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
             Toast.makeText(this, "Nuevo usuario", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "llenar todos los datos", Toast.LENGTH_SHORT).show();
+
         }
     }
 

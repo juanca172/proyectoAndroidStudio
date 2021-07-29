@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/editext_fecha_nacimiento"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFEFF1"
@@ -192,7 +191,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextDate2"
+            android:id="@+id/editext_fecha_nacimiento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
