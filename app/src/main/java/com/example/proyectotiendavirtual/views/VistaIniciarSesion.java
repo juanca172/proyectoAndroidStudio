@@ -2,7 +2,9 @@ package com.example.proyectotiendavirtual.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +15,9 @@ import com.example.proyectotiendavirtual.R;
 public class VistaIniciarSesion extends AppCompatActivity {
     private EditText usuario;
     private EditText contraseña;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,13 @@ public class VistaIniciarSesion extends AppCompatActivity {
 
         usuario = (EditText) findViewById(R.id.txe_correo_usuario);
         contraseña = (EditText) findViewById(R.id.txe_contraseña);
+
+        //Se abre nuevo espacio en memoria
+        preferences = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        //Lo vuelve editable
+        editor = preferences.edit();
+
+
 
     }
 
@@ -37,6 +49,9 @@ public class VistaIniciarSesion extends AppCompatActivity {
 
         if (ComparacionValores()  && ValidarCampoVacio()) {
             Toast.makeText(this, "entro a iniciar sesion", Toast.LENGTH_SHORT).show();
+            int variableSharedPreference = 1;
+            editor.putInt("seInicioSesion",variableSharedPreference);
+            editor.apply();
         }
     }
 
