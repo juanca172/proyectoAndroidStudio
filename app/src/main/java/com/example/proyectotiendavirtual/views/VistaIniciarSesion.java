@@ -33,12 +33,13 @@ public class VistaIniciarSesion extends AppCompatActivity {
     //metodo que verifica los dos metodos creados
     public void IniciarSesion(View view) {
 
-
         ComparacionValores();
         ValidarCampoVacio();
 
         if (ComparacionValores()  && ValidarCampoVacio()) {
             Toast.makeText(this, "entro a iniciar sesion", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "usuario y contraseña no corressponde", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -77,6 +78,5 @@ public class VistaIniciarSesion extends AppCompatActivity {
         }
         return retorno;
     }
-
 
 }
