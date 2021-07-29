@@ -57,24 +57,34 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
 
     }
 
-    //metodo para guardar datos en formulario y registrarsse
+    //metodo para guardar datos en formulario y crear usuario
     public void Registrar(View view){
         Campo_vacio();
-        //Comparar_Valores();
+        Comparar_Valores();
 
-        if (Campo_vacio()) {
-            Toast.makeText(this, "entro a iniciar sesion", Toast.LENGTH_SHORT).show();
+        if (Campo_vacio() && Comparar_Valores()) {
+            Toast.makeText(this, "Nuevo usuario", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "llenar todos los datos", Toast.LENGTH_SHORT).show();
         }
     }
 
-    /*//metodo que compara los valores ingresados
+    //metodo que compara los valores ingresados
     private boolean Comparar_Valores() {
         boolean retorno2;
         String NombreUsuario = "david".trim();
 
+        String NomUsu = String.valueOf(Nusuario.getText()).trim();
+
+        if(NombreUsuario.equals(NomUsu)){
+            retorno2 = false;
+            Toast.makeText(this, "nombre de usuario ya esta en uso", Toast.LENGTH_SHORT).show();
+        }else{
+            retorno2 = true;
+        }
 
         return retorno2;
-    }*/
+    }
 
     //metoodo que verifica los campos vacios en el formulario del registro de usuario
     public boolean Campo_vacio () {
