@@ -59,12 +59,12 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     public void Registrar(View view){
         Campo_vacio();
         Comparar_Valores();
+        Confirmar_Contraseña();
 
-        if (Campo_vacio() && Comparar_Valores()) {
+        if (Campo_vacio() && Comparar_Valores() && Confirmar_Contraseña()) {
             Toast.makeText(this, "Nuevo usuario", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "llenar todos los datos", Toast.LENGTH_SHORT).show();
-
         }
     }
 
@@ -134,6 +134,21 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         }
         return retorno;
 
+    }
+
+    private boolean Confirmar_Contraseña() {
+        boolean retorno3;
+        String IngCon = Iconraseña.getText().toString();
+        String ConCon = Ccontraseña.getText().toString();
+
+        if (ConCon.equals(IngCon)){
+            retorno3 = true;
+        }else{
+            Ccontraseña.setError("contraseñas erronea");
+            Toast.makeText(this, "contraseñas erronea", Toast.LENGTH_SHORT).show();
+            retorno3 = false;
+        }
+        return retorno3;
     }
 
 }
