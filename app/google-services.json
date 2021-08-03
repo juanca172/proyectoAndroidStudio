@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "669705188458",
+    "project_id": "proyectotiendavirtual-50b99",
+    "storage_bucket": "proyectotiendavirtual-50b99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669705188458:android:3f5b6ef9d3fceab8000613",
+        "android_client_info": {
+          "package_name": "com.example.proyectotiendavirtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669705188458-1am4vvg9c07pkplutkutremibm1lhqsc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuKxKGbSXQU7DDSfccKtMDgivynQP0unw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669705188458-1am4vvg9c07pkplutkutremibm1lhqsc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
