@@ -22,12 +22,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:gravity="center"
-            android:text="@string/txvIntroduceElNombre"
+            android:text="@string/txvIntroduceElCorreo"
             android:textColor="#03A9F4"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/editTextCorreoElectronico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -55,7 +55,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLine"
+            android:id="@+id/editTextContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"

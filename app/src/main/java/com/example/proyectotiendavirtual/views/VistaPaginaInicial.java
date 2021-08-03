@@ -6,13 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.proyectotiendavirtual.R;
 
 public class VistaPaginaInicial extends AppCompatActivity {
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+    private VistaIniciarSesion iniciarSesion;
+    private boolean hola;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +26,10 @@ public class VistaPaginaInicial extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (preferences.getInt("seInicioSesion",0) == 0 || preferences.getBoolean("Registrado",false) == false){
-                    goToMainActivity();
-                }
-                else {
-                    Toast.makeText(VistaPaginaInicial.this, "entro a iniciar sesion", Toast.LENGTH_SHORT).show();
-                }
+
+                        goToMainActivity();
+
+
 
             }
         }, 2000);
@@ -43,5 +42,12 @@ public class VistaPaginaInicial extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void Crear_Cuenta2() {
+        Intent Crear_Cuenta = new Intent(this, VistaRegistroDeUsuarioView.class);
+        startActivity(Crear_Cuenta);
+    }
+
+
+
 
 }

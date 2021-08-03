@@ -15,8 +15,9 @@ import com.example.proyectotiendavirtual.R;
 public class VistaIniciarSesion extends AppCompatActivity {
     private EditText usuario;
     private EditText contraseña;
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+    /*SharedPreferences preferences;
+    SharedPreferences.Editor editor;*/
+    private Boolean variableSharedPreference;
 
 
     @Override
@@ -27,12 +28,11 @@ public class VistaIniciarSesion extends AppCompatActivity {
         usuario = (EditText) findViewById(R.id.txe_correo_usuario);
         contraseña = (EditText) findViewById(R.id.txe_contraseña);
 
-        //Se abre nuevo espacio en memoria
+        /*//Se abre nuevo espacio en memoria
         preferences = getSharedPreferences("datos", Context.MODE_PRIVATE);
         //Lo vuelve editable
         editor = preferences.edit();
-
-
+        variableSharedPreference = false;*/
 
     }
 
@@ -41,6 +41,11 @@ public class VistaIniciarSesion extends AppCompatActivity {
         Intent Crear_Cuenta = new Intent(this, VistaRegistroDeUsuarioView.class);
         startActivity(Crear_Cuenta);
     }
+    /*
+    //metodo para saber si ya se logueo
+    public Boolean YaSeLogueo(){
+        return preferences.getBoolean("seInicioSesion", false);
+    }*/
 
     //metodo que verifica los dos metodos creados
     public void IniciarSesion(View view) {
@@ -49,9 +54,9 @@ public class VistaIniciarSesion extends AppCompatActivity {
 
         if (ComparacionValores()  && ValidarCampoVacio()) {
             Toast.makeText(this, "entro a iniciar sesion", Toast.LENGTH_SHORT).show();
-            int variableSharedPreference = 1;
-            editor.putInt("seInicioSesion",variableSharedPreference);
-            editor.apply();
+            /*variableSharedPreference = true;
+            editor.putBoolean("seInicioSesion",variableSharedPreference);
+            editor.apply();*/
         }
     }
 
