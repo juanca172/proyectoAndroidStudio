@@ -57,6 +57,8 @@ public class VistaIniciarSesion extends AppCompatActivity {
             /*variableSharedPreference = true;
             editor.putBoolean("seInicioSesion",variableSharedPreference);
             editor.apply();*/
+        }else{
+            Toast.makeText(this, "usuario y contraseña no corressponde", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -95,6 +97,5 @@ public class VistaIniciarSesion extends AppCompatActivity {
         }
         return retorno;
     }
-
 
 }
