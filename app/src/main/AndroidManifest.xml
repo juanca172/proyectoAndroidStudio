@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoTiendaVirtual">
-        <activity android:name=".views.VisualizacionTienda"></activity>
+        <activity android:name=".views.VisualizacionTienda"/>
         <activity android:name=".views.EditarPerfil" />
         <activity android:name=".views.VistaIniciarSesion" />
         <activity android:name=".views.VistaRegistroDeUsuarioView" />
