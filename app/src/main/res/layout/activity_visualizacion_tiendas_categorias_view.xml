@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CFC9C9"
-    tools:context=".views.visualizacionTiendasView">
+    tools:context=".views.visualizacionTiendasCategoriasView">
 
     <Spinner
         android:id="@+id/PruebaSpinner"
