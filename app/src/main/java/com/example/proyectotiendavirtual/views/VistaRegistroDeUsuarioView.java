@@ -1,26 +1,36 @@
 package com.example.proyectotiendavirtual.views;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectotiendavirtual.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     private EditText campoFecha;
-    private EditText Nusuario;
-    private EditText Iconraseña;
+    private Button botonRegister;
+    private EditText campoCorreo;
+    private EditText campoContraseña;
+    //private boolean yaRegistro;
+    /*SharedPreferences preferences;
+    SharedPreferences.Editor editor;*/
+    FirebaseAuth auth;
     private EditText Ccontraseña;
     private EditText direccion;
     private EditText ciudad;
     private EditText Ntelefono;
-    private EditText Fnacimiento;
     private int dia;
     private int mes;
     private int año;
@@ -30,45 +40,101 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vista_registro_de_usuario_view);
+        campoFecha = findViewById(R.id.editTextFechaNacimiento);
+        botonRegister = findViewById(R.id.btnRegistrarse);
+        campoCorreo = findViewById(R.id.editTextCorreoElectronico);
+        campoContraseña = findViewById(R.id.editTextContraseña);
+        Ccontraseña = (EditText) findViewById(R.id.ediTextContraseñaConfirmacion);
+        direccion = (EditText) findViewById(R.id.editTextDireccion);
+        ciudad = (EditText) findViewById(R.id.editTextCiudad);
+        Ntelefono = (EditText) findViewById(R.id.editTextNumeroTelefonico);
 
-        Nusuario = (EditText) findViewById(R.id.edittext_nombre_usuario);
-        Iconraseña = (EditText) findViewById(R.id.edittext_contraseña);
-        Ccontraseña = (EditText) findViewById(R.id.editext_contraseña);
-        direccion = (EditText) findViewById(R.id.edittext_direccion);
-        ciudad = (EditText) findViewById(R.id.editext_ciudad);
-        Ntelefono = (EditText) findViewById(R.id.editetxt_numero_telefono);
-        Fnacimiento = (EditText) findViewById(R.id.editext_fecha_nacimiento);
 
-        Fnacimiento.setOnClickListener(new View.OnClickListener() {
+        campoFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        Fnacimiento.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                        campoFecha.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                     }
                 }
-                        ,dia, mes, año);
+                        , dia, mes, año);
                 datePickerDialog.show();
+            }
+        });
+
+
+        /*botonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //capturar el valor del check primero colocamos el id
+                //editor.putBoolean("Sesion", checkSesion.isChecked());
+                yaRegistro = true;
+                /*editor.putBoolean("Registrado",yaRegistro);
+                editor.apply();*/
+
+        // });
+        //registrar los datos en el realm time database
+
+        botonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(validarCamposVacios()) {
+                    auth = FirebaseAuth.getInstance();
+                    String usuario2 = campoCorreo.getText().toString();
+                    String contraseña2 = campoContraseña.getText().toString();
+
+                    auth.createUserWithEmailAndPassword(usuario2,contraseña2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()) {
+                                Toast.makeText(VistaRegistroDeUsuarioView.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
+                                finish();
+                            }else {
+                                Toast.makeText(VistaRegistroDeUsuarioView.this,"Error al registrar",Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+                }else{
+                    Toast.makeText(VistaRegistroDeUsuarioView.this,"Revisa Los Campos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
     }
 
+    public Boolean validarCamposVacios() {
+        String usuario1 = campoCorreo.getText().toString();
+        String contraseña1 = campoContraseña.getText().toString();
+        boolean retorno = true;
+        if (usuario1.isEmpty()) {
+            campoCorreo.setError("campo vacío");
+            retorno = false;
+            Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
+        }
+        if (contraseña1.isEmpty()) {
+            campoContraseña.setError("campo vacío");
+            retorno = false;
+            Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
+        }
+        return retorno;
+    }
+
     //metodo para guardar datos en formulario y registrarsse
     public void Registrar(View view){
         Campo_vacio();
-        Comparar_Valores();
-        Confirmar_Contraseña();
 
-        if (Campo_vacio() && Comparar_Valores() && Confirmar_Contraseña()) {
+        if (Campo_vacio()) {
+
             Toast.makeText(this, "Nuevo usuario", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "llenar todos los datos", Toast.LENGTH_SHORT).show();
         }
     }
 
-    //metodo que compara los valores ingresados
+   /* //metodo que compara los valores ingresados
     private boolean Comparar_Valores() {
         boolean retorno2;
         String NombreUsuario = "david".trim();
@@ -83,27 +149,27 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         }
 
         return retorno2;
-    }
+    }*/
 
     //metoodo que verifica los campos vacios en el formulario del registro de usuario
     public boolean Campo_vacio () {
         boolean retorno = true;
 
-        String usu = Nusuario.getText().toString();
-        String Icon = Iconraseña.getText().toString();
+        String usu = campoCorreo.getText().toString();
+        String Icon = campoContraseña.getText().toString();
         String Ccon = Ccontraseña.getText().toString();
         String dir = direccion.getText().toString();
         String ciu = ciudad.getText().toString();
         String Ntel = Ntelefono.getText().toString();
-        String Fnac = Fnacimiento.getText().toString();
+        String Fnac = campoFecha.getText().toString();
 
         if (usu.isEmpty()) {
-            Nusuario.setError("campo vacío");
+            campoCorreo.setError("campo vacío");
             retorno = false;
             Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
         }
         if (Icon.isEmpty()) {
-            Iconraseña.setError("campo vacío");
+            campoContraseña.setError("campo vacío");
             retorno = false;
             Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
         }
@@ -128,7 +194,7 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
             Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
         }
         if (Fnac.isEmpty()) {
-            Fnacimiento.setError("campo vacío");
+            campoFecha.setError("campo vacío");
             retorno = false;
             Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
         }
@@ -136,19 +202,6 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
 
     }
 
-    private boolean Confirmar_Contraseña() {
-        boolean retorno3;
-        String IngCon = Iconraseña.getText().toString();
-        String ConCon = Ccontraseña.getText().toString();
-
-        if (ConCon.equals(IngCon)){
-            retorno3 = true;
-        }else{
-            Ccontraseña.setError("contraseñas erronea");
-            Toast.makeText(this, "contraseñas erronea", Toast.LENGTH_SHORT).show();
-            retorno3 = false;
-        }
-        return retorno3;
-    }
-
 }
+
+

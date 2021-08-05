@@ -21,12 +21,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:gravity="center"
-            android:text="@string/txvIntroduceElNombre"
+            android:text="@string/txvIntroduceElCorreo"
             android:textColor="#03A9F4"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edittext_nombre_usuario"
+
+            android:id="@+id/editTextCorreoElectronico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -54,7 +55,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edittext_contraseña"
+            android:id="@+id/editTextContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -83,7 +84,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editext_contraseña"
+            android:id="@+id/ediTextContraseñaConfirmacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -110,7 +111,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edittext_direccion"
+            android:id="@+id/editTextDireccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -137,7 +138,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editext_ciudad"
+            android:id="@+id/editTextCiudad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -164,7 +165,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editetxt_numero_telefono"
+            android:id="@+id/editTextNumeroTelefonico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -191,7 +192,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editext_fecha_nacimiento"
+            android:id="@+id/editTextFechaNacimiento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -204,7 +205,7 @@
             android:inputType="date" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnRegistrarse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="145dp"
