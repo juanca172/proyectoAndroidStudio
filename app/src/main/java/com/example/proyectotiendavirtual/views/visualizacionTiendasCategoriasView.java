@@ -11,7 +11,7 @@ import android.widget.Spinner;
 
 import com.example.proyectotiendavirtual.R;
 
-public class visualizacionTiendasView extends AppCompatActivity {
+public class visualizacionTiendasCategoriasView extends AppCompatActivity {
     //encapsulamiento del spinner
     private Spinner spinner;
     //encapsulamiento del listView
@@ -19,7 +19,7 @@ public class visualizacionTiendasView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visualizacion_tiendas_view);
+        setContentView(R.layout.activity_visualizacion_tiendas_categorias_view);
         //Relacion entre la vista y la parte logica
         spinner = (Spinner)findViewById(R.id.PruebaSpinner);
         listado = (ListView)findViewById(R.id.list_view_1);
