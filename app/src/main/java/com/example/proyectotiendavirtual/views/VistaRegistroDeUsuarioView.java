@@ -122,7 +122,7 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         return retorno;
     }
 
-    //metodo para guardar datos en formulario y registrarsse
+    /*//metodo para guardar datos en formulario y registrarsse
     public void Registrar(View view){
         Campo_vacio();
 
@@ -132,7 +132,7 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         }else{
             Toast.makeText(this, "llenar todos los datos", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
    /* //metodo que compara los valores ingresados
     private boolean Comparar_Valores() {
