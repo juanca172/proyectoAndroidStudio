@@ -49,14 +49,23 @@ public class VistaIniciarSesion extends AppCompatActivity {
 
     //metodo que verifica los dos metodos creados
     public void IniciarSesion(View view) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e2003de923e8573d3cc1a6fd7d0a4a5aff7fb82
         ComparacionValores();
         ValidarCampoVacio();
 
         if (ComparacionValores()  && ValidarCampoVacio()) {
             Toast.makeText(this, "entro a iniciar sesion", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
             /*variableSharedPreference = true;
             editor.putBoolean("seInicioSesion",variableSharedPreference);
             editor.apply();*/
+=======
+        }else{
+            Toast.makeText(this, "usuario y contraseña no corressponde", Toast.LENGTH_SHORT).show();
+>>>>>>> 8e2003de923e8573d3cc1a6fd7d0a4a5aff7fb82
         }
     }
 
@@ -95,6 +104,5 @@ public class VistaIniciarSesion extends AppCompatActivity {
         }
         return retorno;
     }
-
 
 }
