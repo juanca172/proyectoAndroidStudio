@@ -2,6 +2,7 @@
 
     <string name="app_name">Sales Instantly</string>
 
+    <string name="txvIntroduceElNombreyApellido">Introduce el Nombre y Apellido</string>
     <string name="txvIntroduceElCorreo">Introduce el correo electronico</string>
     <string name="txeIntroducirNombre">Introduce el nombre del usuario</string>
     <string name="txvIntroduceLaContraseña">Introduce una contraseña</string>

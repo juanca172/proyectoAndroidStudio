@@ -19,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class VistaRegistroDeUsuarioView extends AppCompatActivity {
+    private EditText NombreApellido;
     private EditText campoFecha;
     private Button botonRegister;
     private EditText campoCorreo;
@@ -35,11 +36,13 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     private int mes;
     private int año;
 
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vista_registro_de_usuario_view);
+        NombreApellido = findViewById(R.id.editTextNombreyApellido);
         campoFecha = findViewById(R.id.editTextFechaNacimiento);
         botonRegister = findViewById(R.id.btnRegistrarse);
         campoCorreo = findViewById(R.id.editTextCorreoElectronico);
@@ -162,7 +165,13 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         String ciu = ciudad.getText().toString();
         String Ntel = Ntelefono.getText().toString();
         String Fnac = campoFecha.getText().toString();
+        String NoAp = NombreApellido.getText().toString();
 
+        if (NoAp.isEmpty()) {
+            NombreApellido.setError("campo vacío");
+            retorno = false;
+            Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
+        }
         if (usu.isEmpty()) {
             campoCorreo.setError("campo vacío");
             retorno = false;
