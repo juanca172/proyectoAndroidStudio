@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoTiendaVirtual">
+
         <activity android:name=".views.visualizacionTiendasCategoriasView">
         </activity>
         <activity android:name=".views.VisualizacionTienda">
@@ -23,6 +24,7 @@
         <activity android:name=".views.VistaRegistroDeUsuarioView" >
 
         </activity>
+
         <activity android:name=".views.VistaPaginaInicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

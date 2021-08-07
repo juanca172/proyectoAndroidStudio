@@ -29,7 +29,7 @@ tools:context=".views.VistaIniciarSesion">
         android:layout_marginStart="104dp"
         android:layout_marginLeft="104dp"
         android:layout_marginTop="36dp"
-        android:onClick="Crear_Cuenta"
+        android:onClick="CrearCuenta"
         android:text="@string/BtCrearCuenta"
         android:textColor="#010101"
         android:textSize="20sp"
@@ -38,7 +38,7 @@ tools:context=".views.VistaIniciarSesion">
         app:layout_constraintTop_toBottomOf="@+id/logo_facebook" />
 
     <Button
-        android:id="@+id/Button_Ingresar"
+        android:id="@+id/BtnIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
