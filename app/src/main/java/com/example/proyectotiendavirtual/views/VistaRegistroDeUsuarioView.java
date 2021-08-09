@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     private EditText campoFecha;
@@ -34,6 +36,9 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     private int dia;
     private int mes;
     private int año;
+    private DatabaseReference nDatabase;
+
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -48,7 +53,6 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         direccion = (EditText) findViewById(R.id.editTextDireccion);
         ciudad = (EditText) findViewById(R.id.editTextCiudad);
         Ntelefono = (EditText) findViewById(R.id.editTextNumeroTelefonico);
-
 
         campoFecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,35 +80,47 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
 
         // });
         //registrar los datos en el realm time database
-
+        //instancia de la real time database
+        nDatabase = FirebaseDatabase.getInstance().getReference();
         botonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validarCamposVacios()) {
-                    auth = FirebaseAuth.getInstance();
-                    String usuario2 = campoCorreo.getText().toString();
-                    String contraseña2 = campoContraseña.getText().toString();
-
-                    auth.createUserWithEmailAndPassword(usuario2,contraseña2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()) {
-                                Toast.makeText(VistaRegistroDeUsuarioView.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
-                                finish();
-                            }else {
-                                Toast.makeText(VistaRegistroDeUsuarioView.this,"Error al registrar",Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-                    });
-                }else{
-                    Toast.makeText(VistaRegistroDeUsuarioView.this,"Revisa Los Campos", Toast.LENGTH_SHORT).show();
-                }
+                auth = FirebaseAuth.getInstance();
+                String usuario2 = campoCorreo.getText().toString();
+                String contraseña2 = campoContraseña.getText().toString();
+                RegistroUsuariosAuthentication(usuario2, contraseña2);
+                RegistroUsuariosRealTimeDatabase();
             }
         });
 
     }
+    //metodo para registrar usuarios en el real time database
+    public void RegistroUsuariosRealTimeDatabase() {
+        String nombre = "jean";
+        Usuario usuario = new Usuario(nombre,campoCorreo.getText().toString(),direccion.getText().toString(),ciudad.getText().toString(),Ntelefono.getText().toString(),campoFecha.getText().toString());
+        nDatabase.child("prueba").child("administrador").setValue(usuario);
+    }
+    //metodo para Registrar usuarios en authentication
+    public void RegistroUsuariosAuthentication(String usuario, String contraseña){
+        if(validarCamposVacios() && comparaContraseña()) {
+            auth.createUserWithEmailAndPassword(usuario,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()) {
+                        Toast.makeText(VistaRegistroDeUsuarioView.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
 
+
+
+                    }else {
+                        Toast.makeText(VistaRegistroDeUsuarioView.this,"Error al registrar",Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            });
+        }else{
+            Toast.makeText(VistaRegistroDeUsuarioView.this,"Revisa Los Campos", Toast.LENGTH_SHORT).show();
+        }
+    }
     public Boolean validarCamposVacios() {
         String usuario1 = campoCorreo.getText().toString();
         String contraseña1 = campoContraseña.getText().toString();
@@ -134,36 +150,35 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         }
     }*/
 
-   /* //metodo que compara los valores ingresados
-    private boolean Comparar_Valores() {
+   //metodo que compara los valores ingresados
+    private boolean comparaContraseña() {
         boolean retorno2;
-        String NombreUsuario = "david".trim();
+        String contraseña = campoContraseña.getText().toString();
+        String confirmacionContraseña = Ccontraseña.getText().toString();
 
-        String NomUsu = String.valueOf(Nusuario.getText()).trim();
-
-        if(NombreUsuario.equals(NomUsu)){
-            retorno2 = false;
-            Toast.makeText(this, "nombre de usuario ya esta en uso", Toast.LENGTH_SHORT).show();
-        }else{
+        if(contraseña.equals(confirmacionContraseña)){
             retorno2 = true;
+        }else{
+            retorno2 = false;
+            Toast.makeText(this, "Las contraseñas ingresadas no coinciden", Toast.LENGTH_SHORT).show();
         }
 
         return retorno2;
-    }*/
+    }
 
     //metoodo que verifica los campos vacios en el formulario del registro de usuario
     public boolean Campo_vacio () {
         boolean retorno = true;
 
-        String usu = campoCorreo.getText().toString();
+        /*String usu = campoCorreo.getText().toString();
         String Icon = campoContraseña.getText().toString();
-        String Ccon = Ccontraseña.getText().toString();
+        String Ccon = Ccontraseña.getText().toString();*/
         String dir = direccion.getText().toString();
         String ciu = ciudad.getText().toString();
         String Ntel = Ntelefono.getText().toString();
         String Fnac = campoFecha.getText().toString();
 
-        if (usu.isEmpty()) {
+        /*if (usu.isEmpty()) {
             campoCorreo.setError("campo vacío");
             retorno = false;
             Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
@@ -177,7 +192,7 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
             Ccontraseña.setError("campo vacío");
             retorno = false;
             Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
-        }
+        }*/
         if (dir.isEmpty()) {
             direccion.setError("campo vacío");
             retorno = false;
@@ -199,7 +214,6 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
             Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show();
         }
         return retorno;
-
     }
 
 }
