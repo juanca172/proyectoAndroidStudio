@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.proyectotiendavirtual.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -27,10 +29,19 @@ public class VistaIniciarSesion extends AppCompatActivity {
     private Boolean variableSharedPreference;
     FirebaseAuth auth;
 
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FirebaseApp.initializeApp(this);
         super.onCreate(savedInstanceState);
+
+
+
+        preferences = getSharedPreferences("usuario", 0);
+        editor = preferences.edit();
         setContentView(R.layout.activity_vista_iniciar_sesion);
 
         usuario = (EditText) findViewById(R.id.txe_correo_usuario);
@@ -52,6 +63,11 @@ public class VistaIniciarSesion extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
                                 Toast.makeText(VistaIniciarSesion.this,"inicio sesion",Toast.LENGTH_SHORT).show();
+                                editor.putString("correo", Usuario);
+                                editor.commit();
+                                Intent intent = new Intent(VistaIniciarSesion.this, visualizacionTiendasCategoriasView.class);
+
+                                startActivity(intent);
                             }else {
                                 Toast.makeText(VistaIniciarSesion.this,"Error al iniciar sesion",Toast.LENGTH_SHORT).show();
                             }

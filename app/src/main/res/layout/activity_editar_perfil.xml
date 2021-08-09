@@ -8,43 +8,28 @@
     tools:context=".views.EditarPerfil">
 
     <EditText
-        android:id="@+id/editTextTextPersonName11"
+        android:id="@+id/eCiudad"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_below="@+id/editTextTextPersonName5"
+        android:layout_height="40dp"
+        android:layout_below="@+id/eNombre"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
         android:layout_marginTop="22dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:layout_toEndOf="@+id/textView8"
         android:layout_toRightOf="@+id/textView8"
         android:ems="10"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName12"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_below="@+id/editTextTextPersonName11"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:layout_toEndOf="@+id/textView8"
-        android:layout_toRightOf="@+id/textView8"
-        android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
+        android:layout_height="40dp"
+        android:gravity="center"
         android:layout_below="@+id/textView13"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -57,7 +42,8 @@
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
         android:layout_below="@+id/textView12"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -70,7 +56,8 @@
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
         android:layout_below="@+id/textView11"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -83,7 +70,8 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
         android:layout_below="@+id/textView10"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -96,13 +84,14 @@
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView9"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView8"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="22dp"
         android:layout_marginLeft="22dp"
         android:layout_marginTop="22dp"
+        android:gravity="center"
         android:text="Ciudad:"
         android:textSize="20sp" />
 
@@ -119,7 +108,8 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -130,40 +120,29 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/eNombre"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="287dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:layout_toEndOf="@+id/textView8"
         android:layout_toRightOf="@+id/textView8"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="22dp"
-        android:text="Apellidos:"
-        android:textSize="20sp" />
-
     <EditText
-        android:id="@+id/editTextTextPostalAddress"
+        android:id="@+id/eDireccion"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_below="@+id/editTextTextPersonName12"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_below="@+id/eCiudad"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="68dp"
@@ -177,10 +156,11 @@
         android:inputType="textPostalAddress" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/eCorreo"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_below="@+id/editTextTextPostalAddress"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_below="@+id/eDireccion"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="68dp"
@@ -194,10 +174,11 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextPhone2"
+        android:id="@+id/eTelefono"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_below="@+id/editTextTextEmailAddress2"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_below="@+id/eCorreo"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="68dp"
@@ -210,11 +191,14 @@
         android:ems="10"
         android:inputType="phone" />
 
-    <EditText
-        android:id="@+id/editTextDate3"
-        android:layout_width="137dp"
-        android:layout_height="27dp"
-        android:layout_below="@+id/editTextPhone2"
+
+    <Button
+        android:id="@+id/eFecha"
+        style="?android:spinnerStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_below="@+id/eTelefono"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="22dp"
@@ -225,17 +209,20 @@
         android:layout_toEndOf="@+id/textView14"
         android:layout_toRightOf="@+id/textView14"
         android:ems="10"
-        android:inputType="date" />
+        android:hint="@string/txeIntroduceFechaNacimiento"
+        android:inputType="date"
+        android:onClick="openDatePicker"
+        android:textColor="#000000"
+        app:iconTint="#000000" />
+
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView14"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="20dp"
         android:text="Editar" />
 
 </RelativeLayout>

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -17,13 +18,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
 
 public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     private EditText NombreApellido;
-    private EditText campoFecha;
+    private Button campoFecha;
     private Button botonRegister;
     private EditText campoCorreo;
     private EditText campoContraseña;
+
     //private boolean yaRegistro;
     /*SharedPreferences preferences;
     SharedPreferences.Editor editor;*/
@@ -36,14 +47,37 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
     private int mes;
     private int año;
 
+    FirebaseDatabase database;
+    private DatabaseReference mDatabase;
+    private DatePickerDialog datePickerDialog;
+    long maxId;
+
+
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        database = FirebaseDatabase.getInstance();
+        mDatabase = database.getReference().child("users");
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    maxId =(snapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
+
+            }
+        });
+
         setContentView(R.layout.activity_vista_registro_de_usuario_view);
         NombreApellido = findViewById(R.id.editTextNombreyApellido);
-        campoFecha = findViewById(R.id.editTextFechaNacimiento);
+        campoFecha = findViewById(R.id.eFecha);
         botonRegister = findViewById(R.id.btnRegistrarse);
         campoCorreo = findViewById(R.id.editTextCorreoElectronico);
         campoContraseña = findViewById(R.id.editTextContraseña);
@@ -52,33 +86,8 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         ciudad = (EditText) findViewById(R.id.editTextCiudad);
         Ntelefono = (EditText) findViewById(R.id.editTextNumeroTelefonico);
 
-
-        campoFecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        campoFecha.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                    }
-                }
-                        , dia, mes, año);
-                datePickerDialog.show();
-            }
-        });
-
-
-        /*botonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //capturar el valor del check primero colocamos el id
-                //editor.putBoolean("Sesion", checkSesion.isChecked());
-                yaRegistro = true;
-                /*editor.putBoolean("Registrado",yaRegistro);
-                editor.apply();*/
-
-        // });
-        //registrar los datos en el realm time database
+        initDatePicker();
+        campoFecha.setText(getTodayDate());
 
         botonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,13 +96,19 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
                     auth = FirebaseAuth.getInstance();
                     String usuario2 = campoCorreo.getText().toString();
                     String contraseña2 = campoContraseña.getText().toString();
+                    Toast.makeText(VistaRegistroDeUsuarioView.this,"Error al registrar",Toast.LENGTH_SHORT).show();
 
                     auth.createUserWithEmailAndPassword(usuario2,contraseña2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()) {
-                                Toast.makeText(VistaRegistroDeUsuarioView.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
-                                finish();
+
+                                Toast.makeText( VistaRegistroDeUsuarioView.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
+
+                                writeNewUser("", NombreApellido.getText().toString(), campoCorreo.getText().toString(), contraseña2, direccion.getText().toString(), ciudad.getText().toString(), Ntelefono.getText().toString(), campoFecha.getText().toString());
+                                //  writeNewUser("teexztsdf", "fdggdfgdgf", "sfdgtgfhd", "dfgdhdfh", "fdggdfgd", "fdtghfghfh", "fghfghfgh", "dfghfghcjgjghjk");
+
+
                             }else {
                                 Toast.makeText(VistaRegistroDeUsuarioView.this,"Error al registrar",Toast.LENGTH_SHORT).show();
 
@@ -106,6 +121,52 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String getTodayDate() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int month = cal.get(Calendar.MONTH);
+        month = month +1;
+        return makeDateString(day, month, year);
+    }
+
+    private void initDatePicker() {
+      DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+          @Override
+          public void onDateSet(DatePicker view, int year, int month, int day) {
+              month = month +1 ;
+              String date = makeDateString(day, month, year);
+              campoFecha.setText(date);
+          }
+      };
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int month = cal.get(Calendar.MONTH);
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+
+
+    }
+
+    private String makeDateString(int day, int month, int year) {
+        return day + " / " + month +" / "+ year;
+
+    }
+
+    public void onDataChange(){
+
+    }
+
+    public void writeNewUser(String userId, String nombre, String email, String contrasena, String direccion, String ciudad, String telefono, String fecha) {
+        ModeloUsuario user = new ModeloUsuario( nombre,  email,  contrasena,  direccion,  ciudad,  telefono,  fecha);
+
+        mDatabase.child(String.valueOf((maxId +1))).setValue(user);
+        //mDatabase.setValue(user);
+        //mDatabase.child("users").child(userId).setValue(user);
     }
 
     public Boolean validarCamposVacios() {
@@ -211,6 +272,10 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
 
     }
 
+    public void openDatePicker(View view) {
+        datePickerDialog.show();
+
+    }
 }
 
 

@@ -216,8 +216,9 @@
             android:textColor="#2196F3"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextFechaNacimiento"
+        <Button
+            android:id="@+id/eFecha"
+            style="?android:spinnerStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -227,7 +228,10 @@
             android:layout_marginBottom="15dp"
             android:ems="10"
             android:hint="@string/txeIntroduceFechaNacimiento"
-            android:inputType="date" />
+            android:inputType="date"
+            android:onClick="openDatePicker"
+            android:textColor="#000000"
+            app:iconTint="#000000" />
 
         <Button
             android:id="@+id/btnRegistrarse"

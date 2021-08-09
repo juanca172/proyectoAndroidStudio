@@ -23,4 +23,5 @@
     <string name="BtOlvideMiContraseña">OLVIDE MI CONTRASEÑA</string>
     <string name="BtCrearCuenta">CREAR CUENTA</string>
     <string name="BtIngresar">INGRESAR</string>
+    <string name="hola_mundo">hola mundo</string>
 </resources>
