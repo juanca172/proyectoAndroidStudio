@@ -57,7 +57,11 @@ public class visualizacionTiendasCategoriasView extends AppCompatActivity {
         List<CardViewAtributos> itemsList = new ArrayList<>();
         itemsList.add(new CardViewAtributos("Tomate", "salsa de tomate", R.drawable.tomate));
         itemsList.add(new CardViewAtributos("axe", "desodorante",R.drawable.axe));
-        itemsList.add(new CardViewAtributos("ponds", "panhhahajajka", R.drawable.ponds));
+        itemsList.add(new CardViewAtributos("ponds", "desodorante", R.drawable.ponds));
+        itemsList.add(new CardViewAtributos("axe", "desodorante",R.drawable.axe));
+        itemsList.add(new CardViewAtributos("ego", "salsa de tomate", R.drawable.ego));
+
+
         return itemsList;
     }
     public void goToVistaIniciarSesionDesdeLasTiendas(View view) {
