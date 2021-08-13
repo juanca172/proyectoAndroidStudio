@@ -16,9 +16,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.proyectotiendavirtual.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +37,15 @@ public class visualizacionTiendasCategoriasView extends AppCompatActivity {
     FirebaseDatabase database;
     FirebaseAuth auth;
     private DatabaseReference mDatabase;
+    FirebaseFirestore mFireStore;
+    private String nombre;
+    private  String image;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFireStore = FirebaseFirestore.getInstance();
         database = FirebaseDatabase.getInstance();
         mDatabase = database.getReference().child("users");
         setContentView(R.layout.activity_visualizacion_tiendas_categorias_view);
@@ -53,12 +61,13 @@ public class visualizacionTiendasCategoriasView extends AppCompatActivity {
         initViews();
         initValues();
 
-
+        GetValuesFromFirestore();
     }
-
+    //metodo para unir el widget del recycler con la parte logica
     public void initViews() {
         rvtiendas = findViewById(R.id.rvLista);
     }
+    //metodo para ingresar los datos al recycler view
     public void initValues() {
         LinearLayoutManager manager = new LinearLayoutManager(this);
         rvtiendas.setLayoutManager(manager);
@@ -95,4 +104,20 @@ public class visualizacionTiendasCategoriasView extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    public void GetValuesFromFirestore() {
+        mFireStore = FirebaseFirestore.getInstance();
+        mFireStore.collection("ImagenesProductos").document("1").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    nombre = documentSnapshot.getString("Nombre");
+                    image = documentSnapshot.getString("Imagen");
+                    Toast.makeText(visualizacionTiendasCategoriasView.this, nombre, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+    }
+
 }
