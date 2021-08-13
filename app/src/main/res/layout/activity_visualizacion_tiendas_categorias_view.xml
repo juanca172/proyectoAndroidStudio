@@ -12,34 +12,12 @@
         android:id="@+id/PruebaSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
 
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="104dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/spinnerMaterial"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:hint="Seleccione una categoria"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-        <AutoCompleteTextView
-            android:id="@+id/autoComplete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -70,20 +48,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
-    <ListView
-        android:id="@+id/list_view_1"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLista"
         android:layout_width="match_parent"
-        android:layout_height="521dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="4dp"
-        android:divider="@android:drawable/button_onoff_indicator_off"
-        android:entries="@android:array/phoneTypes"
-        android:padding="10dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="44dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PruebaSpinner"
-        app:layout_constraintVertical_bias="0.96" />
-
+        app:layout_constraintTop_toBottomOf="@+id/PruebaSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

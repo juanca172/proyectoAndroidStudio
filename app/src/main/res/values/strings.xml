@@ -24,4 +24,6 @@
     <string name="BtCrearCuenta">CREAR CUENTA</string>
     <string name="BtIngresar">INGRESAR</string>
     <string name="hola_mundo">hola mundo</string>
+    <string name="nombreProducto">Nombre del producto</string>
+    <string name="descripcionProducto">Descripcion del producto</string>
 </resources>

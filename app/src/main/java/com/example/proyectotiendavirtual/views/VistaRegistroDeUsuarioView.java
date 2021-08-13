@@ -279,5 +279,3 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
 
     }
 }
-
-
