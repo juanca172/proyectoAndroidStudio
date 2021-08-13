@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -96,14 +97,11 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
                     auth = FirebaseAuth.getInstance();
                     String usuario2 = campoCorreo.getText().toString();
                     String contraseña2 = campoContraseña.getText().toString();
-                    Toast.makeText(VistaRegistroDeUsuarioView.this,"Error al registrar",Toast.LENGTH_SHORT).show();
 
                     auth.createUserWithEmailAndPassword(usuario2,contraseña2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()) {
-
-                                Toast.makeText( VistaRegistroDeUsuarioView.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
 
                                 writeNewUser("", NombreApellido.getText().toString(), campoCorreo.getText().toString(), contraseña2, direccion.getText().toString(), ciudad.getText().toString(), Ntelefono.getText().toString(), campoFecha.getText().toString());
                                 //  writeNewUser("teexztsdf", "fdggdfgdgf", "sfdgtgfhd", "dfgdhdfh", "fdggdfgd", "fdtghfghfh", "fghfghfgh", "dfghfghcjgjghjk");
@@ -167,6 +165,10 @@ public class VistaRegistroDeUsuarioView extends AppCompatActivity {
         mDatabase.child(String.valueOf((maxId +1))).setValue(user);
         //mDatabase.setValue(user);
         //mDatabase.child("users").child(userId).setValue(user);
+        Toast.makeText( VistaRegistroDeUsuarioView.this,"Usuario Registrado",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(VistaRegistroDeUsuarioView.this, VistaIniciarSesion.class );
+
+        startActivity(intent);
     }
 
     public Boolean validarCamposVacios() {
